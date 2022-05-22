@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap%22");
+
+  .b3 html, .b3 body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+  }
+  .b3 .container {
+    max-width: 100%;
+    height: 100%;
+    width: 430px;
+    position: relative;
+  }
+  .b3 .container .wrapper2 {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+  .b3 .wrapper2.active {
+    border: none;
+  }
+  .b3 .wrapper2 .image {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .b3 .wrapper2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .b3 .wrapper2 .icon {
+    font-size: 100px;
+    color: #9658fe;
+  }
+
+  .b3 .wrapper2 #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 5%;
+    top: 5%;
+    color: #1bdbe0;
+    cursor: pointer;
+    display: none;
+  }
+
+  .b3 .wrapper2.active:hover #cancel-btn i {
+    display: block;
+  }
+
+  .b3 .wrapper2 #cancel-btn i:hover {
+    color: #e74c3c;
+  }
+
+  .b3 .wrapper2 .file-name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 3% 3%;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: #1bdbe0;
+  }
+
+  .b3 .wrapper2.active:hover .file-name {
+    display: block;
+  }

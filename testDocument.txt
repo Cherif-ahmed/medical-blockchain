@@ -1,0 +1,22 @@
+// res = await App.Authcontract.methods.patient_documents(accounts[0], 0).call()
+// res.patient_addr != "0x0000000000000000000000000000000000000000"
+// for(let i =0 ;i<5; i++){
+//  App.Authcontract.methods.Add_document("0xfFF8682164BECd564E8ee7C4C37227CDC471382d", "docType"+i, "docLink"+i, "docDate"+i).send({from: App.accounts[0], gas:3000000});
+
+// }
+
+i=0
+res = await App.Authcontract.methods.patient_documents(accounts[0], i).call();
+console.info(res.patient_addr);
+while(res.patient_addr != "0x0000000000000000000000000000000000000000"){
+  console.log(res);
+  i= i+1;
+	res = await App.Authcontract.methods.patient_documents(accounts[0], i).call()
+}
+
+//  do {
+//   res = await App.Authcontract.methods.patient_documents(accounts[0], i).call();
+//   console.log(res)
+//   i++;
+// }
+// while (res.patient_addr != "0x0000000000000000000000000000000000000000");

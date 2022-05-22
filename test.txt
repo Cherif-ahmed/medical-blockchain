@@ -1,0 +1,116 @@
+web3.eth.defaultAccount = web3.eth.accounts[0]
+App.auth.then(function(instance) {
+        deployed = instance;
+        return instance.registerUser(
+          $('#name').val(),
+          $('#password').val(),
+          {from: App.account, gas:3000000}
+        );
+
+      }).then(function(result) {
+        // Do something with the result or continue with more transactions.
+        if(result)
+          console.log("user registered successfully: " );
+ 				else
+          console.log("user was not registered" );
+        
+      });
+======================================================================
+App.auth.then(function(instance) {
+        deployed = instance;
+        return instance.loginUser(
+          App.account,
+          $('#password').val(),
+          {from: App.account, gas:3000000}
+        );
+
+      }).then(function(result) {
+        // Do something with the result or continue with more transactions.
+        if(result)
+          console.log("user logged in : " );
+ 				else
+          console.log("user not logged in" );
+        
+      });
+
+=====================================================================================================
+
+
+#connect metamask and get contract:
+
+contract = await $.getJSON('../Auth.json')
+address = "0x94601783f6C5d6Bab8dAB5f139f17B80Cb7a415d";
+async function jj() {
+            if (window.ethereum) {
+                console.log("This is DAppp Environment");
+                var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                var currentaddress = accounts[0];
+
+                web3 = new Web3(window.ethereum);
+                mycontract = new web3.eth.Contract(contract.abi, address); // add your alreay defined abi and address in Contract(abi, address)
+                console.log(mycontract);
+
+            } else {
+                console.log("Please connect with metamask");
+            }
+        }
+
+jj();
+
+===============================================================================================
+
+#call solidity method 
+
+var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+var res = await mycontract.methods.registerPatient(
+          $('#address').val(),
+          $('#firstName').val(),
+          $('#lastName').val(),
+          $('#email').val(),
+          selectedGender).send({from: accounts[0], gas:3000000})
+console.log(res.events.UserRegistered.returnValues.email);
+
+
+===============================================================================
+
+#call solidity getter method 
+
+res = await App.Authcontract.methods.patientCount.call().call()
+parseInt(await App.Authcontract.methods.getRole.call().call())
+
+await App.Authcontract.methods.addPatientInfo("0xfFF8682164BECd564E8ee7C4C37227CDC471382d",
+ "Not Set", "Not Set","Not Set", "Not Set").send({from: App.accounts[0], gas:3000000});
+
+res = await App.Authcontract.methods.users("0xfFF8682164BECd564E8ee7C4C37227CDC471382d").call()
+
+===============================================================================
+
+#listen to btn press using events
+const btn = document.querySelector('#btn_submit'); 
+        btn.addEventListener("click", () => 
+        {console.log("btn pressed")});
+
+===============================================================================
+
+patientCount =parseInt( await App.Authcontract.methods.patientCount.call().call())
+
+patientAddresses =[];
+for (let i = 0; i < patientCount; i++){
+patientAddresses.push(await App.Authcontract.methods.patientAddresses(i).call())
+}
+console.log(patientAddresses)
+
+patientAddresses.forEach((item, index)=>{ console.log(index + ": " + item  );})
+
+const table = document.getElementById("patientTable");
+    patientAddresses.forEach( async(item) => {
+      let row = table.insertRow();
+      let FullName = row.insertCell(0);
+      res = await App.Authcontract.methods.users(item).call();
+      FullName.innerHTML = res.firstName;
+      let Gender = row.insertCell(1);
+      Gender.innerHTML =  res.gender
+      let Email = row.insertCell(2);
+      Email.innerHTML =  res.email;
+      
+    });
