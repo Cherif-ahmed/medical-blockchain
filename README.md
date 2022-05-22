@@ -1,5 +1,5 @@
 # Dapp Authentication
-This project provides a Decentralized Application, for storing and sharing an EHR(Electronic Health Record) on Ethereum Blockchain using Solidity language and (Auth.sol, RegistrationReq.sol) smart contracts written to achieve .
+This project provides a Decentralized Application, for storing and sharing an EHR(Electronic Health Record) on Ethereum Blockchain using Solidity language and (Auth.sol, RegistrationReq.sol) smart contracts.
 
 ![Build Status](https://img.shields.io/badge/build-Alpha-blue)   ![Licence](https://img.shields.io/badge/licence-AGPL3-green)   ![npm](https://img.shields.io/badge/npm-6.14.16-brightgreen)
 
