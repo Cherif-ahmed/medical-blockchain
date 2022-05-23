@@ -40,9 +40,7 @@ App = {
     App.accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     switch(parseInt(await App.Authcontract.methods.getRole(App.accounts[0]).call())) {
       case 0:
-        if(await App.Requestcontract.methods.hasRequestedRegistration(App.accounts[0]).call()){
-           await App.Requestcontract.methods.deleteRegistrationRequest().send({from: App.accounts[0], gas:3000000});
-        }
+        
         App.role="patient"
         break;
       case 1:
@@ -117,6 +115,9 @@ App = {
     if(res.events.UserRegistered.returnValues.email == null){
       alert("user not registered")
     } else {
+      if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
+        await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
+      }
       document.getElementById("form_registerPatient").reset()
       alert("Patient registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
     }
