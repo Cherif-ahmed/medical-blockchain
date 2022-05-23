@@ -126,26 +126,32 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Add Admin</h4>
-                    <form class="forms-sample" id="form_registerPatient">
+                    <form id="form_registerAdmin" class="forms-sample">
                       <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="firstName" required>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                        <p id="demo1" class="text-danger"></p>
                       </div>
                       <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="lastName" required>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                        <p id="demo2" class="text-danger"></p>
                       </div>
                       <div class="form-group">
+                      <div class="form-group">
                         <label for="phoneNum">Phone Number</label>
-                        <input type="tel" class="form-control" id="phoneNum" placeholder="phoneNum" pattern="0[6|5|7][0-9]{8}" required>
+                        <input type="tel" class="form-control" id="phoneNum" placeholder="example : 0632121543" pattern="0[6|5|7][0-9]{8}" required>
+                        <p id="demo5" class="text-danger"></p>
                       </div>
                       <div class="form-group">
                         <label for="DOB">Date of Birth</label>
-                        <input type="date" class="form-control" id="DOB" placeholder="DOB"  required>
+                        <input type="date" class="form-control" id="DOB"  required>
+                        <p id="demo6" class="text-danger"></p>
                       </div>
                       <div class="form-group">
                         <label for="homeAddress">Home Address</label>
                         <input type="text" class="form-control" id="homeAddress" placeholder="Home Address" required>
+                        <p id="demo7" class="text-danger"></p>
                       </div>
                       <label class="col-sm-3 col-form-label">Gender</label>
                       <div class="form-group row" style="margin-left: 20% ;">
@@ -165,14 +171,16 @@
                       <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        <p id="demo8" class="text-danger"></p>
                       </div>
                       <div class="form-group">
                         <label for="adress">MetaMask Address</label>
-                        <input type="text" class="form-control" id="address"
-                          placeholder="Adress" required>
+                        <input type="text" class="form-control" id="metamask"
+                          placeholder="MetaMask Address" required>
+                          <p id="demo9" class="text-danger"></p>
                       </div>
                     </form>
-                    <center><button onclick="App.AdminRegistration()" id="btn_submit" class="btn btn-primary mr-2">Submit</button></center> 
+                    <center><button onclick="AdminValidity()" id="btn_submit" class="btn btn-primary mr-2">Submit</button></center> 
                   </div>
                 </div>
               </div>
@@ -180,15 +188,8 @@
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <!-- <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com
-                2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                  href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
-                  templates</a> from Bootstrapdash.com</span>
-            </div>
-          </footer> -->
+          <footer class="footer">
+          </footer>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -214,5 +215,101 @@
     <script src="../js/dashboard.js"></script>
     <script src="../js/app.js"></script>
     <!-- End custom js for this page -->
+    <script>
+      function AdminValidity() {
+      let firstName = document.getElementById("firstName");
+      let lastName = document.getElementById("lastName");
+      let phoneNum = document.getElementById("phoneNum");
+      let email = document.getElementById("email");
+      let homeAddress = document.getElementById("homeAddress");
+      let metamask = document.getElementById("metamask");
+      let DOB = document.getElementById("DOB");
+      var letters = /^[A-Za-z-\s]+$/;
+      var phone = /^0[6|5|7][0-9]{8}$/;
+      var emailPattren = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      let Formvalidity = true;
+      let text;
+
+
+      if ((isNaN(firstName.value)) && firstName.value.match(letters)) {
+        text = "Input OK";
+        firstName.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid name";
+        firstName.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo1").innerHTML = text;
+
+
+      if ((isNaN(lastName.value)) && lastName.value.match(letters)) {
+        text = "Input OK";
+        lastName.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid last name";
+        lastName.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo2").innerHTML = text;
+
+      if ((phoneNum.value.match(phone))) {
+        text = "Input OK";
+        phoneNum.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid phone number";
+        phoneNum.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo5").innerHTML = text;
+
+      if ((DOB.value != "")) {
+        text = "Input OK";
+        DOB.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid birthday";
+        DOB.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo6").innerHTML = text;
+
+      //********************************************************
+      if ((isNaN(homeAddress.value)) && homeAddress.value.match(letters)) {
+        text = "Input OK";
+        homeAddress.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid Home Address";
+        homeAddress.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo7").innerHTML = text;
+      //********************************************************
+      //********************************************************
+      if (email.value !== "" && email.value.match(emailPattren)) {
+        text = "Input OK";
+        email.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid email";
+        email.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo8").innerHTML = text;
+      //********************************************************
+      //********************************************************
+
+      if (metamask.value !== "") {
+        text = "Input OK";
+        metamask.classList.remove("border-danger");
+      } else {
+        text = "please enter a valid MetaMask address";
+        metamask.classList.add("border-danger");
+        Formvalidity = false;
+      }
+      document.getElementById("demo9").innerHTML = text;
+      //********************************************************
+      if (Formvalidity) {
+        App.AdminRegistration()
+      }
+    }
+    </script>
   </body>
 </html>
