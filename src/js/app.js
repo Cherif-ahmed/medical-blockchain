@@ -2,8 +2,8 @@ App = {
   provider: new Web3.providers.HttpProvider("http://localhost:7545"),
   loading: false,
   accounts : {},
-  contractAddress : "0x0D66D47FFC41318bC692Bf76FBf77e8360F84661",
-  ContractAddress2 : "0xd574Ca5504d5436e2Cb5c663662BB93587cd186e",
+  contractAddress : "0x472108f8d62f43f197A029f38B1d0BBC437a92B2",
+  ContractAddress2 : "0x193998e3d4a5706Ffcb5a5fA4ddb1aedd7a92519",
   role:-1,
   load : async () =>{
     //loading app
@@ -40,9 +40,6 @@ App = {
     App.accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     switch(parseInt(await App.Authcontract.methods.getRole(App.accounts[0]).call())) {
       case 0:
-        if(await App.Requestcontract.methods.hasRequestedRegistration(App.accounts[0]).call()){
-           await App.Requestcontract.methods.deleteRegistrationRequest().send({from: App.accounts[0], gas:3000000});
-        }
         App.role="patient"
         break;
       case 1:
@@ -117,6 +114,9 @@ App = {
     if(res.events.UserRegistered.returnValues.email == null){
       alert("user not registered")
     } else {
+      if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
+        await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
+      }
       document.getElementById("form_registerPatient").reset()
       alert("Patient registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
     }
@@ -239,6 +239,9 @@ App = {
         window.location.replace("/"+App.role+"/index.html");
       }
       window.ethereum.on("accountsChanged", () => {
+        console.log('test')
+        console.log(App.accounts[0])
+
         window.location.reload();
       });
     }

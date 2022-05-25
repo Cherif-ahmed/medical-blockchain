@@ -10832,6 +10832,8 @@ button.bg-dark:focus {
 
 .rounded-circle {
   border-radius: 50% !important;
+  max-width: 170px;
+  margin-left: 10%;
 }
 
 .rounded-pill {
@@ -18277,7 +18279,6 @@ dl li {
 /* Navbar */
 .navbar {
   font-family: "Open Sans", sans-serif;
-  font-weight: 300;
   background: #fff;
   transition: background 0.25s ease;
   -webkit-transition: background 0.25s ease;
