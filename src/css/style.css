@@ -19600,4 +19600,14 @@ padding-left: 10%;
 .sidebar .nav .nav-item .nav-link i.menu-icon2:before {
   vertical-align: middle;
 }
+.sidebar .nav .nav-item .nav-link i.menu-icon3 {
+  font-size: 1.125rem;
+  line-height: 1;
+  margin-left: 14%;
+  color: #626262;
+}
+.sidebar .nav .nav-item .nav-link i.menu-icon3:before {
+  vertical-align: middle;
+}
+
 /* icon */
