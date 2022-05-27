@@ -40,6 +40,7 @@ App = {
     App.accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     switch(parseInt(await App.Authcontract.methods.getRole(App.accounts[0]).call())) {
       case 0:
+        
         App.role="patient"
         break;
       case 1:
