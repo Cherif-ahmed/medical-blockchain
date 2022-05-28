@@ -250,7 +250,7 @@
 
 
       if ((isNaN(firstName.value)) && firstName.value.match(letters)) {
-        text = "Input OK";
+        text = "";
         firstName.classList.remove("border-danger");
       } else {
         text = "please enter a valid name";
@@ -261,7 +261,7 @@
 
 
       if ((isNaN(lastName.value)) && lastName.value.match(letters)) {
-        text = "Input OK";
+        text = "";
         lastName.classList.remove("border-danger");
       } else {
         text = "please enter a valid last name";
@@ -272,7 +272,7 @@
 
 
       if ((isNaN(speciality.value)) && speciality.value.match(letters)) {
-        text = "Input OK";
+        text = "";
         speciality.classList.remove("border-danger");
       } else {
         text = "please enter a valid speciality";
@@ -282,7 +282,7 @@
       document.getElementById("demo3").innerHTML = text;
 
       if ((isNaN(institution.value)) && institution.value.match(letters)) {
-        text = "Input OK";
+        text = "";
         institution.classList.remove("border-danger");
       } else {
         text = "please enter a valid institution";
@@ -292,7 +292,7 @@
       document.getElementById("demo4").innerHTML = text;
 
       if ((phoneNum.value.match(phone))) {
-        text = "Input OK";
+        text = "";
         phoneNum.classList.remove("border-danger");
       } else {
         text = "please enter a valid phone number";
@@ -302,7 +302,7 @@
       document.getElementById("demo5").innerHTML = text;
 
       if ((DOB.value!="")) {
-        text = "Input OK";
+        text = "";
         DOB.classList.remove("border-danger");
       } else {
         text = "please enter a valid birthday";
@@ -313,7 +313,7 @@
 
       //********************************************************
       if ((isNaN(homeAddress.value))) {
-        text = "Input OK";
+        text = "";
         homeAddress.classList.remove("border-danger");
       } else {
         text = "please enter a valid Home Address";
@@ -324,7 +324,7 @@
       //********************************************************
       //********************************************************
       if (email.value!=="" && email.value.match(emailPattren)) {
-        text = "Input OK";
+        text = "";
         email.classList.remove("border-danger");
       } else {
         text = "please enter a valid email";
@@ -336,7 +336,7 @@
       //********************************************************
 
       if (metamask.value !== "") {
-        text = "Input OK";
+        text = "";
         metamask.classList.remove("border-danger");
       } else {
         text = "please enter a valid MetaMask address";
