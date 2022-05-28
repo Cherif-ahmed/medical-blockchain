@@ -2,8 +2,8 @@ App = {
   provider: new Web3.providers.HttpProvider("http://localhost:7545"),
   loading: false,
   accounts : {},
-  contractAddress : "0x472108f8d62f43f197A029f38B1d0BBC437a92B2",
-  ContractAddress2 : "0x193998e3d4a5706Ffcb5a5fA4ddb1aedd7a92519",
+  contractAddress : "0xf903630040d6038a845C8206C09c97512cbc3DC9",
+  ContractAddress2 : "0x5868a1071E5Ac86966B2F817EC1B8e9670bfC8d2",
   role:-1,
   load : async () =>{
     //loading app
@@ -23,10 +23,24 @@ App = {
 
     if (window.ethereum) {
       console.log("This is DAppp Environment");
-      App.accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      App.accounts = await ethereum.request({ method: 'eth_requestAccounts' }).then(console.log("Requesting metamask accounts..."))
+      .catch((error) => {
+        if (error.code === 4001) {
+          // EIP-1193 userRejectedRequest error
+          console.log('Please connect to MetaMask.');
+        } else if(error.code === -32002){
+          if(window.location.pathname!="/anon/index.html"){
+          window.location.replace("/anon/index.html");
+          console.log(window.location.pathname)
+          }
+        }
+         else {
+          console.error(error);
+        }
+      });
 
       web3 = new Web3(window.ethereum);
-      App.Authcontract = new web3.eth.Contract(App.contract.abi, App.contractAddress); // add your already defined abi and address in Contract(abi, address)
+      App.Authcontract = new web3.eth.Contract(App.contract.  abi, App.contractAddress); // add your already defined abi and address in Contract(abi, address)
       App.Requestcontract = new web3.eth.Contract(App.contract2.abi, App.ContractAddress2); 
       await App.getRole(); 
       
@@ -47,13 +61,16 @@ App = {
         App.role="doctor"
         break;
       case 2:
-        if (await App.Authcontract.methods.isOwner().call()){
-          App.role="AdminOwner"
-        }else
+        // if (await App.Authcontract.methods.isOwner().call()){
+        //   App.role="AdminOwner"
+        // }else
         App.role="Admin"
         break;
       case 3:
         App.role="anon"
+        break;
+      case 4:
+        App.role="AdminOwner"
         break;
       default:
         App.role="anon"
@@ -90,38 +107,40 @@ App = {
 
 
   PatientRegistration : async (event) => {
+    event.preventDefault();
+    form = document.getElementById("form_registerPatient");
     if (await App.checkRegistration($('#address').val())){
 
       alert("User Already registered with this address!")
 
-  }else{
-    const radioButtons = document.querySelectorAll('input[name="genderRadios"]');
-            let selectedGender;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedGender = radioButton.value;
-                    break;
-                }
-            }
-    var res = await App.Authcontract.methods.registerPatient(
-      $('#address').val(),
-      $('#firstName').val(),
-      $('#lastName').val(),
-      $('#email').val(),
-      $('#phoneNum').val(),
-      $('#DOB').val(),
-      $('#homeAddress').val(),
-      selectedGender).send({from: App.accounts[0], gas:3000000});
-    if(res.events.UserRegistered.returnValues.email == null){
-      alert("user not registered")
-    } else {
-      if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
-        await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
+    }else{
+      const radioButtons = document.querySelectorAll('input[name="genderRadios"]');
+              let selectedGender;
+              for (const radioButton of radioButtons) {
+                  if (radioButton.checked) {
+                      selectedGender = radioButton.value;
+                      break;
+                  }
+              }
+        var res = await App.Authcontract.methods.registerPatient(
+          $('#address').val(),
+          $('#firstName').val(),
+          $('#lastName').val(),
+          $('#email').val(),
+          $('#phoneNum').val(),
+          $('#DOB').val(),
+          $('#homeAddress').val(),
+          selectedGender).send({from: App.accounts[0], gas:3000000});
+      if(res.events.UserRegistered.returnValues.email == null){
+        alert("user not registered")
+      } else {
+        // if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
+        //   await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
+        // }
+        form.reset()
+        alert("Patient registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
       }
-      document.getElementById("form_registerPatient").reset()
-      alert("Patient registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
     }
-  }
   },
   
   sendRegistrationRequest : async (event) => {
@@ -156,38 +175,40 @@ App = {
   },
 
   AdminRegistration : async (event) => {
-    if (await App.checkRegistration($('#address').val())){
+      event.preventDefault();
+      if (await App.checkRegistration($('#address').val())){
 
-      alert("User Already registered with this address!")
+        alert("User Already registered with this address!")
 
-  }else{
-    const radioButtons = document.querySelectorAll('input[name="genderRadios"]');
-            let selectedGender;
-            for (const radioButton of radioButtons) {
-                if (radioButton.checked) {
-                    selectedGender = radioButton.value;
-                    break;
-                }
-            }
-    var res = await App.Authcontract.methods.registerAdmin(
-      $('#address').val(),
-      $('#firstName').val(),
-      $('#lastName').val(),
-      $('#email').val(),
-      $('#phoneNum').val(),
-      $('#DOB').val(),
-      selectedGender).send({from: App.accounts[0], gas:3000000});
-    if(res.events.UserRegistered.returnValues.email == null){
-      alert("user not registered")
-    } else {
-      document.getElementById("form_registerPatient").reset()
-      alert("Admin registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
+    }else{
+      const radioButtons = document.querySelectorAll('input[name="genderRadios"]');
+              let selectedGender;
+              for (const radioButton of radioButtons) {
+                  if (radioButton.checked) {
+                      selectedGender = radioButton.value;
+                      break;
+                  }
+              }
+      var res = await App.Authcontract.methods.registerAdmin(
+        $('#address').val(),
+        $('#firstName').val(),
+        $('#lastName').val(),
+        $('#email').val(),
+        $('#phoneNum').val(),
+        $('#DOB').val(),
+        selectedGender).send({from: App.accounts[0], gas:3000000});
+      if(res.events.UserRegistered.returnValues.email == null){
+        alert("user not registered")
+      } else {
+        document.getElementById("form_registerAdmin").reset()
+        alert("Admin registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
+      }
     }
-  }
   },
 
   
   DoctorRegistration : async (event) => {
+    event.preventDefault();
     form = document.getElementById("form_registerDoctor");
     form.checkValidity();
     if (await App.checkRegistration($('#address').val())){

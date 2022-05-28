@@ -1,7 +1,7 @@
 async function loadRegistrationRequestList() {
 
     contract = await $.getJSON('../RegistrationReq.json');
-    contractAddress =  "0x193998e3d4a5706Ffcb5a5fA4ddb1aedd7a92519";
+    contractAddress =  "0x5868a1071E5Ac86966B2F817EC1B8e9670bfC8d2";
 
     web3 = new Web3(window.ethereum);
     Authcontract = new web3.eth.Contract(contract.abi, contractAddress);
@@ -41,7 +41,7 @@ async function loadRegistrationRequestList() {
 async function deleteRegistrationRequest(addr) {
 
     contract = await $.getJSON('../RegistrationReq.json');
-    contractAddress =  "0x193998e3d4a5706Ffcb5a5fA4ddb1aedd7a92519";
+    contractAddress =  "0x5868a1071E5Ac86966B2F817EC1B8e9670bfC8d2";
     accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 
 

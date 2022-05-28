@@ -11,7 +11,9 @@ contract Auth {
     constructor() public {
         ownerAddress = msg.sender;
         users[ownerAddress].addr = ownerAddress;
-        users[ownerAddress].role = UserRole.Admin;
+        users[ownerAddress].role = UserRole.AdminOwner;
+        users[ownerAddress].firstName = "Admin";
+        users[ownerAddress].lastName = "Owner";
     }
 
     modifier onlyOwner() {
@@ -20,7 +22,7 @@ contract Auth {
     }
 
     modifier onlyAdmin() {
-        require(users[msg.sender].role == UserRole.Admin);
+        require(users[msg.sender].role == UserRole.Admin || users[msg.sender].role == UserRole.AdminOwner);
         _;
     }
 
@@ -62,7 +64,7 @@ contract Auth {
     mapping(uint => Document) public documents;
     mapping(address => mapping(uint => Document)) public patient_documents;
 
-    enum UserRole{Patient, Doctor, Admin, Anon}
+    enum UserRole{Patient, Doctor, Admin, Anon, AdminOwner}
 
      struct UserInfo{
         address addr;

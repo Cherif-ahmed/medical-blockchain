@@ -20,21 +20,23 @@ async function  loadPersonalInformation() {
         institution.innerHTML = info.Institution;
         address = info.workAddress;
     }
-
+    document.getElementById("profileName").innerHTML= res.firstName +" "+ res.lastName;
+    document.getElementById("profileName2").innerHTML= res.firstName +" "+ res.lastName;
+    document.getElementById("NavbarName").innerHTML= res.firstName +" "+ res.lastName;
     let firstName = document.getElementById("firstName");
     firstName.innerHTML = res.firstName;
     let lastName = document.getElementById("lastName");
     lastName.innerHTML = res.lastName;
     let phoneNum = document.getElementById("phoneNum");
     phoneNum.innerHTML =  res.phoneNum;
-    let homeAddress = document.getElementById("homeAddress");
-    homeAddress.innerHTML =  address;
     let DOB = document.getElementById("DOB");
     DOB.innerHTML =  res.DOB;
     let gender = document.getElementById("gender");
     gender.innerHTML =  res.gender;
     let email = document.getElementById("email");
     email.innerHTML =  res.email;
+    let homeAddress = document.getElementById("homeAddress");
+    homeAddress.innerHTML =  address;
         
 
 }
