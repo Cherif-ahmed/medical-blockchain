@@ -39,11 +39,11 @@
           <ul class="navbar-nav navbar-nav-right ml-auto">
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="../images/faces/adminOwner.png" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
+                <img class="img-xs rounded-circle ml-2" src="../images/faces/adminOwner.png" alt="Profile image"> <span id="NavbarName" class="font-weight-normal"> Henry Klein </span></a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
                   <img class="img-md rounded-circle" src="../images/faces/adminOwner.png" alt="Profile image">
-                  <p class="mb-1 mt-3">Allen Moreno</p>
+                  <p id="profileName2" class="mb-1 mt-3">Allen Moreno</p>
                   <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
                 </div>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
@@ -67,7 +67,7 @@
                   <img class="img-xs rounded-circle" src="../images/faces/adminOwner.png" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
+                  <p id="profileName" class="profile-name">Allen Moreno</p>
                   <p class="designation">Administrator</p>
                 </div>
               </a>
@@ -119,7 +119,7 @@
                       <a href="addPatient.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user mr-2"></i>Add Patient</h4></button></a>
                     </div>
                     <div class="col-sm-4 col-md-4 p-3 text-center btn-wrapper">
-                      <a href="addPatient.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-doctor mr-2"></i> Add Healthworker</h4></button></a>
+                      <a href="addDoctor.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-doctor mr-2"></i> Add Healthworker</h4></button></a>
                     </div>
                     <div class="col-sm-4 col-md-4 p-3 text-center btn-wrapper">
                       <a href="addAdmin.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-gear mr-2"></i> Add Admin</h4></button></a>
@@ -262,12 +262,12 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="d-sm-flex align-items-baseline report-summary-header">
-                          <h5 class="font-weight-semibold">Report Summary</h5> <span class="ml-auto">Updated Report</span> <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
+                          <h5 class="font-weight-semibold">Report Summary</h5> <span class="ml-auto">Updated Report</span> <button onclick="loadReport()" class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
                         </div>
                       </div>
                     </div>
                     <div class="row report-inner-cards-wrapper">
-                      <div class=" col-md -6 col-xl report-inner-card">
+                      <!-- <div class=" col-md -6 col-xl report-inner-card">
                         <div class="inner-card-icon bg-success">
                           <i class="icon-rocket"></i>
                         </div>
@@ -276,33 +276,33 @@
                           <h4>80</h4>
                         </div>
 
-                      </div>
+                      </div> -->
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-icon bg-danger">
-                          <i class="icon-briefcase"></i>
+                          <i class="fa-solid fa-user-shield"></i>
                         </div>
                         <div class="inner-card-text">
-                          <span class="report-title"><b>Number of dead patients</b></span>
-                          <h4>95,458</h4>
+                          <span class="report-title"><b>Number of Administrators</b></span>
+                          <h4 id="AdminNum">Loading...</h4>
                         </div>
 
                       </div>
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-icon bg-warning">
-                          <i class="icon-globe-alt"></i>
+                          <i class="fa-solid fa-hospital-user"></i>
                         </div>
                         <div class="inner-card-text">
-                          <span class="report-title">Number of total Patients</span>
-                          <h4>2650</h4>
+                          <span class="report-title">Number of Patients</span>
+                          <h4 id="PatientNum">Loading...</h4>
                         </div>
                       </div>
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-icon bg-primary">
-                          <i class="icon-diamond"></i>
+                          <i class="fa-solid fa-user-doctor"></i>
                         </div>
                         <div class="inner-card-text">
-                          <span class="report-title">Number of Healthworkers</span>
-                          <h4>25,542</h4>
+                          <span class="report-title">Number of Health Workers</span>
+                          <h4 id="DoctorNum">Loading...</h4>
                         </div>
                       </div>
                     </div>
@@ -340,7 +340,8 @@
     <!-- Custom js for this page -->
     <script src="../js/dashboard.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/adminReport.js"></script>
     <script src="../js/personalInformation.js "></script>
-    <!-- End custom js for this page -->
+<!-- End custom js for this page -->
   </body>
 </html>
