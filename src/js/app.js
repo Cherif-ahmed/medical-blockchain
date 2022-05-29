@@ -27,10 +27,10 @@ App = {
       .catch((error) => {
         if (error.code === 4001) {
           // EIP-1193 userRejectedRequest error
-          console.log('Please connect to MetaMask.');
+          alert('Please connect with MetaMask to enter the App.');
         } else if(error.code === -32002){
-          if(window.location.pathname!="/anon/index.html"){
-          window.location.replace("/anon/index.html");
+          if(window.location.pathname != "/"){
+          window.location.replace("/");
           console.log(window.location.pathname)
           }
         }
