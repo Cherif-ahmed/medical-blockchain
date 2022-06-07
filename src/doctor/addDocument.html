@@ -427,6 +427,10 @@
       }else if (docType.value == 'Death certificate / Certificat de constatation de décès') {
         $("#documentCard").attr("hidden",false);
         $("#ordonnance").attr("hidden",true);
+      }else{
+        $("#documentCard").attr("hidden",true);
+        $("#ordonnance").attr("hidden",true);
+        
       }
     });
   });
