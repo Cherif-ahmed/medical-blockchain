@@ -109,7 +109,34 @@
                 <option disabled selected value> -- select an option -- </option>
                 <option value='Prescription / Ordonnance médicale'>Prescription / Ordonnance médicale</option>
                 <option value='Death certificate / Certificat de constatation de décès'>Death certificate /
-                  Certificat de constatation de décès</option>
+                  Certificat de constatation de
+                  décès</option>
+                <option value='Premarital certificate / Certificat prénuptial'>Premarital certificate /
+                  Certificat prénuptial</option>
+                <option value='Vaccination certificate / Certificat de vaccination'>Vaccination certificate /
+                  Certificat de vaccination</option>
+                <option
+                  value='Medical certificates for social security / Certificats médicaux destinés à la sécurité sociale'>
+                  Medical certificates for social security / Certificats médicaux destinés à la sécurité sociale
+                </option>
+                <option value="Certificates of protection of an incapable adult / Certificats de protection d'
+                  un incapable majeur">Certificates of protection of an incapable adult / Certificats de
+                  protection d'un incapable majeur</option>
+                <option value="Certificate of internment / Certificat d' internement">Certificate of internment
+                  / Certificat d'internement</option>
+                <option value='Certificate of good health / Certificat de bonne santé'>Certificate of good
+                  health / Certificat de bonne santé</option>
+                <option value="Certificate of fitness / Certificat d' aptitude physique">Certificate of fitness
+                  / Certificat d'aptitude physique</option>
+                <option value='Certificate of pneumo-phthisiology / Certificat de pneumo-phtisiologie'>
+                  Certificate of pneumo-phthisiology
+                  / Certificat de pneumo-phtisiologie</option>
+                <option value="Certificate of work stoppage / Certificat d' arrêt de travail">Certificate of
+                  work stoppage / Certificat d'arrêt de travail</option>
+                <option value="Certificate of age estimate / Certificat d' estimation d'âge">Certificate of age
+                  estimate / Certificat d'estimation d'âge</option>
+                <option value='Certificate of pregnancy / Certificat  de grossesse'>Certificate of pregnancy /
+                  Certificat de grossesse</option>
               </select>
             </div>
             <nav aria-label="breadcrumb">
@@ -385,6 +412,7 @@
   const img = document.getElementById("preview");
   let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 
+  /*Document type hide*/
   $(document).ready(function () {
     $('#docType').on('change', function () {
       doctype = $('#docType');
@@ -397,13 +425,9 @@
         $("#documentCard").attr("hidden",true);
         $("#ordonnance").attr("hidden",false);
 
-      }else if (docType.value == 'Death certificate / Certificat de constatation de décès') {
+      }else{
         $("#documentCard").attr("hidden",false);
         $("#ordonnance").attr("hidden",true);
-      }else{
-        $("#documentCard").attr("hidden",true);
-        $("#ordonnance").attr("hidden",true);
-
       }
     });
   });
@@ -513,6 +537,7 @@
     inputDate.innerHTML = 'Rue, Cite, Eloued,le: ' + ordoDate.value;
 
   }
+
 
 </script>
 
