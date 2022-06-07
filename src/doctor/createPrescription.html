@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Add Document</title>
+  <title>Create prescription</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css">
@@ -102,110 +102,15 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Add Document </h3>
-            <div class="form-group">
-              <label>Document Type</label>
-              <select id="docType" class="js-example-basic-single" style="width:100%">
-                <option disabled selected value> -- select an option -- </option>
-                <option value='Prescription / Ordonnance médicale'>Prescription / Ordonnance médicale</option>
-                <option value='Death certificate / Certificat de constatation de décès'>Death certificate /
-                  Certificat de constatation de
-                  décès</option>
-                <option value='Premarital certificate / Certificat prénuptial'>Premarital certificate /
-                  Certificat prénuptial</option>
-                <option value='Vaccination certificate / Certificat de vaccination'>Vaccination certificate /
-                  Certificat de vaccination</option>
-                <option
-                  value='Medical certificates for social security / Certificats médicaux destinés à la sécurité sociale'>
-                  Medical certificates for social security / Certificats médicaux destinés à la sécurité sociale
-                </option>
-                <option value="Certificates of protection of an incapable adult / Certificats de protection d'
-                  un incapable majeur">Certificates of protection of an incapable adult / Certificats de
-                  protection d'un incapable majeur</option>
-                <option value="Certificate of internment / Certificat d' internement">Certificate of internment
-                  / Certificat d'internement</option>
-                <option value='Certificate of good health / Certificat de bonne santé'>Certificate of good
-                  health / Certificat de bonne santé</option>
-                <option value="Certificate of fitness / Certificat d' aptitude physique">Certificate of fitness
-                  / Certificat d'aptitude physique</option>
-                <option value='Certificate of pneumo-phthisiology / Certificat de pneumo-phtisiologie'>
-                  Certificate of pneumo-phthisiology
-                  / Certificat de pneumo-phtisiologie</option>
-                <option value="Certificate of work stoppage / Certificat d' arrêt de travail">Certificate of
-                  work stoppage / Certificat d'arrêt de travail</option>
-                <option value="Certificate of age estimate / Certificat d' estimation d'âge">Certificate of age
-                  estimate / Certificat d'estimation d'âge</option>
-                <option value='Certificate of pregnancy / Certificat  de grossesse'>Certificate of pregnancy /
-                  Certificat de grossesse</option>
-              </select>
-            </div>
+            <h3 class="page-title"> Create Prescription </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="Doctors.html">Document</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add Document</li>
+                <li class="breadcrumb-item"><a href="consultRecord.html">Document</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Create prescription</li>
               </ol>
             </nav>
           </div>
-          <div class="card" id="documentCard">
-            <div class="card-body">
-              <h4 class="card-title">Add Document</h4>
-              <div class="row ">
-                <div class="col-md-6 grid-margin" ;>
-                  <form class="forms-sample">
-                    <div class="form-group">
-                      <label for="DOB">documentDate</label>
-                      <input type="date" class="form-control" id="docDate" placeholder="DOB" required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="exampleTextarea1">Description</label>
-                      <textarea class="form-control" placeholder="Document Description and informations..."
-                        id="docDecsription" rows="20"></textarea>
-                    </div>
-                    <div class="form-group">
-
-                    </div>
-
-                </div>
-                </form>
-                <div class="col-md-6 grid-margin" ;>
-                  <div class="b3">
-                    <div class="container">
-                      <!-- <button onclick="defaultBtnActive()" id="custom-btn"
-                        class="file-upload-browse btn btn-primary" style="margin-bottom: 20px;">Upload Image</button> -->
-                      <input type="file" id="myFile" name="filename" onchange={App2.captureFile()}
-                        class="file-upload-default" hidden>
-                      <button class="file-upload-browse btn btn-primary" onclick="App2.onSubmit()" type="button"
-                        hidden>Upload</button>
-                      <div id="previewlink"></div>
-
-                      <div class="wrapper2">
-                        <div class="image">
-                          <img id="preview" src="../images/cloud-computing.png"
-                            style="height:50% ; width: 50%; margin-left:25%" onclick="imageOnClick()">
-                        </div>
-                        <div id="cancel-btn">
-                          <i class="fas fa-times"></i>
-                        </div>
-                        <div class="file-name">
-                          File name here
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <center><button onclick="onSubmit()" type="submit" class="btn btn-primary mr-2">Submit</button></center>
-
-            </div>
-            <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-
-            </footer>
-            <!-- partial -->
-          </div>
-          <div class="card" id="ordonnance" hidden>
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title">Create prescription</h4>
               <div class="row ">
@@ -403,7 +308,6 @@
 </body>
 
 <script>
-  
   const wrapper = document.querySelector(".wrapper2");
   const fileName = document.querySelector(".file-name");
   const defaultBtn = document.querySelector("#myFile");
@@ -411,34 +315,20 @@
   const cancelBtn = document.querySelector("#cancel-btn i");
   const img = document.getElementById("preview");
   let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+  const max_fields = 7; //maximum input boxes allowed
+  var x = 1; //initlal text box count
 
-  $(document).ready(function () {
-    $('#docType').on('change', function () {
-      doctype = $('#docType');
-      ordo = $('#ordonnance');
-      documentCard = $('#documentCard');
-
-      console.log(docType.value);
-
-      if (docType.value == 'Prescription / Ordonnance médicale') {
-        $("#documentCard").attr("hidden",true);
-        $("#ordonnance").attr("hidden",false);
-
-      }else if (docType.value == 'Death certificate / Certificat de constatation de décès') {
-        $("#documentCard").attr("hidden",false);
-        $("#ordonnance").attr("hidden",true);
-      }
-    });
-  });
 
   function defaultBtnActive() {
     defaultBtn.click();
   }
+
   function imageOnClick() {
     if (img.src.endsWith("/images/cloud-computing.png")) {
       defaultBtn.click();
     }
   }
+
   defaultBtn.addEventListener("change", function () {
     const file = this.files[0];
     console.log(file)
@@ -465,13 +355,8 @@
     }
 
   });
-</script>
 
 
-<script>
-
-  const max_fields = 7; //maximum input boxes allowed
-  var x = 1; //initlal text box count
   /*   add medicen function */
   function addMedicine(e) {
     var wrapper = $(".input_fields_wrap"); //Fields wrapper
@@ -481,7 +366,7 @@
     e.preventDefault();
     if (x < max_fields) { //max input box allowed
       x++; //text box increment
-      $(wrapper).append('<div id="div1-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Drug Name</label><input type="text" class="form-control" id="drugName-' + x + '" placeholder="Drug Name" onKeyup="updateMedicene(' + x + ')" required></div> </div><div id="div2-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Number of uses</label><input type="text" min="0" class="form-control" id="usesDay-' + x + '" placeholder="Number of uses a day" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div5-' + x + '" class="col-md-2"><div class="form-group"><label for="DOB">Condition (optional)</label><input type="text" min="0" class="form-control" id="condition-' + x + '" placeholder="condition" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div3-' + x + '" class="col-md-2"><div class="form-group"><label for="DOB">Days number</label><input type="number" min="0" class="form-control" id="daysNumber-' + x + '" placeholder="Days Number" onChange="updateMedicene(' + x + ')"required></div></div><div id="div4-' + x + '"class="col-md-2"> <div class="form-group "> <label for="DOB">&nbsp;&nbsp;&nbsp;&nbsp;Remove</label> <button id ="button-' + x + '" type="button" onclick="rmvMedicine(' + x + ')" class="btn btn-danger add_field_button"><i class="icon-minus" ></i></button> </div> </div>'); //add input box
+      $(wrapper).append('<div id="div1-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Drug Name</label><input type="text" class="form-control" id="drugName-' + x + '" placeholder="Drug Name" onKeyup="updateMedicene(' + x + ')" required></div> </div><div id="div2-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Number of uses</label><input type="text" min="0" class="form-control" id="usesDay-' + x + '" placeholder="Number of uses a day" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div5-'+x+'" class="col-md-2"><div class="form-group"><label for="DOB">Condition (optional)</label><input type="text" min="0" class="form-control" id="condition-' + x + '" placeholder="condition" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div3-' + x + '" class="col-md-2"><div class="form-group"><label for="DOB">Days number</label><input type="number" min="0" class="form-control" id="daysNumber-' + x + '" placeholder="Days Number" onChange="updateMedicene(' + x + ')"required></div></div><div id="div4-' + x + '"class="col-md-2"> <div class="form-group "> <label for="DOB">&nbsp;&nbsp;&nbsp;&nbsp;Remove</label> <button id ="button-' + x + '" type="button" onclick="rmvMedicine(' + x + ')" class="btn btn-danger add_field_button"><i class="icon-minus" ></i></button> </div> </div>'); //add input box
       $(wrapper2).append('<div class="medicine uperline" id="med-' + x + '"> <div class="flex-row"> <div class="flex-column-med"> <div class="medicinName"></div> <div class="medicineTraitment"></div> <div class="medicineCondition"></div> </div> <div class="medicineBoites"></div> </div> </div>');
 
     }
@@ -536,27 +421,6 @@
     inputDate.innerHTML = 'Rue, Cite, Eloued,le: ' + ordoDate.value;
 
   }
-
-
-
-
-
-    /* document type card */
-    $('#docType').on('change', function () {
-      doctype = $('#docType');
-      ordo = $('#ordonnace');
-      documentCard = $('#documentCard');
-
-      console.log("docType.val");
-
-      if (docType.value == 'Prescription / Ordonnance médicale') {
-        documentCard.removeClass('active');
-        ordo.addClass('active');
-
-      }
-
-    });
-
 </script>
 
 </html>

@@ -81,3 +81,92 @@
   .b3 .wrapper2.active:hover .file-name {
     display: block;
   }
+
+  .b4 .underline {
+    content: "";
+    /* border: 1px solid #d3d3d3; */
+    border-bottom: 1px solid #d3d3d3;
+    align-self: stretch;
+  }
+
+  .b4 .uperline {
+    content: "";
+    /* border: 1px solid #d3d3d3; */
+    border-top: 1px solid #d3d3d3;
+    align-self: stretch;
+  }
+  .b4 .footer {
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: solid 1px red;
+  }
+  .b4 .footer span {
+    align-self: flex-end;
+  }
+  .b4 .medicine {
+    margin-bottom: 1%;
+  }
+  .b4 .bot {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* height: -webkit-fill-available; */
+    height: inherit;
+  }
+  .b4 .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .b4 .flex-column-med {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    text-align: left;
+  }
+  .b4 .flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 7pt;
+    margin-right: 7pt;
+  }
+  .b4 .flex-img-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 7pt;
+    margin-right: 7pt;
+    align-items: flex-end;
+  }
+  .b4 hr.solid {
+    border-top: 3px solid #bbb;
+    align-self: stretch;
+  }
+  .b4 .flex-column > hr.solid {
+    border-top: 3px solid #bbb;
+    align-self: stretch;
+  }
+  .b4 .logo-place {
+    width: 30%;
+    margin-right: 15%;
+  }
+  .b4 .logo-title-lpace {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2d99be;
+  }
+  .b4 .OrdonnanceCont {
+    width: 130mm;
+    height: 180mm;
+    border-width: 0.1mm;
+    border-color: black;
+    border-style: solid;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  .b4 .addressUnder {
+    margin-right: 5pt;
+  }
