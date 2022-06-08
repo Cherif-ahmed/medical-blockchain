@@ -92,6 +92,8 @@ App2 = {
         day = "0" + day;
       var today = now.getFullYear() + '-' + month + '-' + day;
       $('#docDate').val(today);
+      $('#ordoDate').val(today);
+      document.getElementById("inputDate").innerHTML = ", le: " + today
       console.info("initializing ipfs node...");
       App2.ipfs = await Ipfs.create();
       // const { cid } = await node.add('Hello world')
