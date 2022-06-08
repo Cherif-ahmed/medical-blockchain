@@ -29,7 +29,7 @@ async function  onSubmitOrdo() {
   web3 = new Web3(window.ethereum);
   Authcontract = new web3.eth.Contract(contract.abi, contractAddress); 
   addr = getUrlVars()["addr"];
-  var element = document.getElementById('Ordonnance');
+  var element = document.getElementById('print');
   var opt = {
           margin: 0,
           jsPDF:        { unit: 'mm', format: [130.5,180.5], orientation: 'portrait' }
