@@ -1,5 +1,6 @@
 
-async function  onSubmit() {
+async function  onSubmit(e) {
+    e.preventDefault();
     contract = await $.getJSON('../Auth.json');
     contractAddress = localStorage.getItem('contractAddress')
     accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -21,7 +22,8 @@ async function  onSubmit() {
       }
 }
 
-async function  onSubmitOrdo() {
+async function  onSubmitOrdo(e) {
+  e.preventDefault();
   contract = await $.getJSON('../Auth.json');
   contractAddress = localStorage.getItem('contractAddress')
   accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -29,9 +31,10 @@ async function  onSubmitOrdo() {
   web3 = new Web3(window.ethereum);
   Authcontract = new web3.eth.Contract(contract.abi, contractAddress); 
   addr = getUrlVars()["addr"];
-  var element = document.getElementById('print');
+  var element = document.getElementById('Ordonnance');
   var opt = {
           margin: 0,
+          html2canvas:{scrollX:0,scrollY:0, scale:1, windowWidth:1915, windowHeight:679},
           jsPDF:        { unit: 'mm', format: [130.5,180.5], orientation: 'portrait' }
       };
   const resul = await html2pdf().set(opt).from(element).outputImg('datauri');
@@ -41,8 +44,8 @@ async function  onSubmitOrdo() {
   console.log(link)
 
 
-  var res = await Authcontract.methods.Add_document(addr, $('#docType').val(), link, 
-    $('#docDecsription').val(), $('#docDate').val()).send({from: accounts[0], gas:3000000});
+  var res = await Authcontract.methods.Add_document(addr, 'Prescription / Ordonnance médicale', link, 
+    $('#ordoDecsription').val(), $('#ordoDate').val()).send({from: accounts[0], gas:3000000});
 
     if(res.events.DocumentAdded.returnValues.patient_addr == null){
       alert("Couldn't update information!")

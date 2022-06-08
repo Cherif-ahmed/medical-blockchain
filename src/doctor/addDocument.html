@@ -195,7 +195,7 @@
                   </div>
                 </div>
               </div>
-              <center><button onclick="onSubmit()" type="submit" class="btn btn-primary mr-2">Submit</button></center>
+              <center><button onclick="onSubmit(event)" type="submit" class="btn btn-primary mr-2">Submit</button></center>
 
             </div>
             <!-- content-wrapper ends -->
@@ -280,7 +280,7 @@
                     <div class="form-group">
                       <label for="exampleTextarea1">Description</label>
                       <textarea class="form-control" placeholder="Prescription Description and informations..."
-                        id="docDecsription" rows="15"></textarea>
+                        id="ordoDecsription" rows="15"></textarea>
                     </div>
                     <div class="form-group">
 
@@ -289,34 +289,35 @@
                 </div>
                 </form>
                 <div class="col-md-4 grid-margin">
-                  <div  id="print" class="b4">
-                    <div class="container">
-                      <div id="Ordonnance" class="flex-column OrdonnanceCont">
-                        <div class="flex-row underline" style="padding-bottom: 1.5mm;">
-                          <div class="flex-column" style="justify-content: center;">
+                  <div  >
+                    <div    >
+                    <div id="print" class="container">
+                      <div id="Ordonnance" class="flex-column-ordo OrdonnanceCont-ordo">
+                        <div class="flex-row-ordo underline-ordo" style="padding-bottom: 1.5mm;">
+                          <div class="flex-column-ordo" style="justify-content: center;">
                             <div id="docName">Dr.Name Last</div>
-                            <div id="speciality" class="underline">Generalist</div>
+                            <div id="speciality" class="underline-ordo">Generalist</div>
                             <div id="phoneNum">tel:0556677889</div>
                             <div id="docEmail">doc@mail.com</div>
 
                           </div>
                           <div></div>
-                          <div class="flex-img-div"><img class="logo-place" src="../images/logo.png" title="logo">
-                            <h3 class="logo-title-lpace">DecentraMed</h3>
+                          <div class="flex-img-div-ordo"><img class="logo-place-ordo" src="../images/logo.png" title="logo">
+                            <h3 class="logo-title-lpace-ordo">DecentraMed</h3>
                           </div>
 
 
                         </div>
-                        <div class="flex-row" style="margin-top: 3mm;">
+                        <div class="flex-row-ordo" style="margin-top: 3mm;">
                           <div id="nom">Nom:</div>
                           <div id="prenom">Prenom:</div>
                           <div id="age">Age: </div>
                         </div>
                         <h2 style="margin-bottom: 1cm;">ORDONNANCE</h2>
-                        <div class="flex-column medicineList">
-                          <div class="medicine" id="med-1">
-                            <div class="flex-row">
-                              <div class="flex-column-med">
+                        <div class="flex-column-ordo medicineList">
+                          <div class="medicine-ordo" id="med-1">
+                            <div class="flex-row-ordo">
+                              <div class="flex-column-med-ordo">
                                 <div class="medicinName"></div>
                                 <div class="medicineTraitment"></div>
                                 <div class="medicineCondition"></div>
@@ -325,8 +326,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class='bot'>
-                          <span class="flex-row addressUnder">
+                        <div class='bot-ordo'>
+                          <span class="flex-row-ordo addressUnder-ordo">
                             <div id="inputAddress">Rue, Cite, Eloued </div>
                             <div id="inputDate">, le: </div>
                           </span>
@@ -335,13 +336,14 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
-              <center><button onclick="onSubmitOrdo()" type="submit" class="btn btn-primary mr-2">Submit</button></center>
+              <center><button onclick="onSubmitOrdo(event)" type="submit" class="btn btn-primary mr-2">Submit</button></center>
 
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <footer class="footer">
+            <footer class="footer-ordo">
 
             </footer>
             <!-- partial -->
@@ -488,7 +490,7 @@
     if (x < max_fields) { //max input box allowed
       x++; //text box increment
       $(wrapper).append('<div id="div1-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Drug Name</label><input type="text" class="form-control" id="drugName-' + x + '" placeholder="Drug Name" onKeyup="updateMedicene(' + x + ')" required></div> </div><div id="div2-' + x + '" class="col-md-3"><div class="form-group"><label for="DOB">Number of uses</label><input type="text" min="0" class="form-control" id="usesDay-' + x + '" placeholder="Number of uses a day" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div5-' + x + '" class="col-md-2"><div class="form-group"><label for="DOB">Condition (optional)</label><input type="text" min="0" class="form-control" id="condition-' + x + '" placeholder="condition" onKeyup="updateMedicene(' + x + ')" required></div></div><div id="div3-' + x + '" class="col-md-2"><div class="form-group"><label for="DOB">Days number</label><input type="number" min="0" class="form-control" id="daysNumber-' + x + '" placeholder="Days Number" onChange="updateMedicene(' + x + ')"required></div></div><div id="div4-' + x + '"class="col-md-2"> <div class="form-group "> <label for="DOB">&nbsp;&nbsp;&nbsp;&nbsp;Remove</label> <button id ="button-' + x + '" type="button" onclick="rmvMedicine(' + x + ')" class="btn btn-danger add_field_button"><i class="icon-minus" ></i></button> </div> </div>'); //add input box
-      $(wrapper2).append('<div class="medicine uperline" id="med-' + x + '"> <div class="flex-row"> <div class="flex-column-med"> <div class="medicinName"></div> <div class="medicineTraitment"></div> <div class="medicineCondition"></div> </div> <div class="medicineBoites"></div> </div> </div>');
+      $(wrapper2).append('<div class="medicine-ordo uperline-ordo" id="med-' + x + '"> <div class="flex-row-ordo"> <div class="flex-column-med-ordo"> <div class="medicinName"></div> <div class="medicineTraitment"></div> <div class="medicineCondition"></div> </div> <div class="medicineBoites"></div> </div> </div>');
 
     }
   }
@@ -526,20 +528,12 @@
 
   /* html realtime typing on the ordonnance */
 
-  nom = getElementById('nom');
-  prenom = getElementById('prenom');
-  age = getElementById('age');
-  firstName = getElementById('firstName');
-  familyName = getElementById('familyName');
-  inputAge = getElementById('inputAge');
-  ordoDate = getElementById('ordoDate');
-  inputDate = getElementById('inputDate');
+
+  ordoDate = document.getElementById('ordoDate');
+  inputDate = document.getElementById('inputDate');
 
   function myFunction() {
-    nom.innerHTML = 'Nom: ' + firstName.value;
-    prenom.innerHTML = 'Prenom: ' + familyName.value;
-    age.innerHTML = 'Age: ' + inputAge.value;
-    inputDate.innerHTML = 'Rue, Cite, Eloued,le: ' + ordoDate.value;
+    inputDate.innerHTML = ', le: ' + ordoDate.value;
 
   }
 

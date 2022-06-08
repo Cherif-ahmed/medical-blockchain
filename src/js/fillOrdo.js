@@ -30,9 +30,9 @@ async function fillOrdo(){
     homeAddress.innerHTML =  address;
     //patient info
     let Nom = document.getElementById("nom");
-    Nom.innerHTML =  "Age: "+ patInfo.firstName;
+    Nom.innerHTML =  "Nom: "+ patInfo.firstName;
     let Prenom = document.getElementById("prenom");
-    Prenom.innerHTML =  "Age: "+ patInfo.lastName;
+    Prenom.innerHTML =  "Prenom: "+ patInfo.lastName;
     let DOB = document.getElementById("age");
     DOB.innerHTML =  "Age: "+ patAge;
 }

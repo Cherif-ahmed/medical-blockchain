@@ -82,57 +82,57 @@
     display: block;
   }
 
-  .b4 .underline {
+   .underline-ordo {
     content: "";
     /* border: 1px solid #d3d3d3; */
     border-bottom: 1px solid #d3d3d3;
     align-self: stretch;
   }
 
-  .b4 .uperline {
+   .uperline-ordo {
     content: "";
     /* border: 1px solid #d3d3d3; */
     border-top: 1px solid #d3d3d3;
     align-self: stretch;
   }
-  .b4 .footer {
+   .footer-ordo {
     margin: auto;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     border: solid 1px red;
   }
-  .b4 .footer span {
+   .footer-ordo span {
     align-self: flex-end;
   }
-  .b4 .medicine {
+   .medicine-ordo {
     margin-bottom: 1%;
   }
-  .b4 .bot {
+   .bot-ordo {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     /* height: -webkit-fill-available; */
     height: inherit;
   }
-  .b4 .flex-column {
+   .flex-column-ordo{
     display: flex;
     flex-direction: column;
   }
-  .b4 .flex-column-med {
+   .flex-column-med-ordo {
     display: flex;
     justify-content: start;
     flex-direction: column;
     text-align: left;
   }
-  .b4 .flex-row {
+   .flex-row-ordo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-left: 7pt;
     margin-right: 7pt;
   }
-  .b4 .flex-img-div {
+   .flex-img-div-ordo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,24 +140,24 @@
     margin-right: 7pt;
     align-items: flex-end;
   }
-  .b4 hr.solid {
+   hr.solid-ordo {
     border-top: 3px solid #bbb;
     align-self: stretch;
   }
-  .b4 .flex-column > hr.solid {
+   .flex-column-ordo > hr.solid-ordo {
     border-top: 3px solid #bbb;
     align-self: stretch;
   }
-  .b4 .logo-place {
+   .logo-place-ordo {
     width: 30%;
     margin-right: 15%;
   }
-  .b4 .logo-title-lpace {
+   .logo-title-lpace-ordo {
     margin-top: 0;
     margin-bottom: 0;
     color: #2d99be;
   }
-  .b4 .OrdonnanceCont {
+   .OrdonnanceCont-ordo {
     width: 130mm;
     height: 180mm;
     border-width: 0.1mm;
@@ -167,6 +167,6 @@
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
-  .b4 .addressUnder {
+   .addressUnder-ordo {
     margin-right: 5pt;
   }
