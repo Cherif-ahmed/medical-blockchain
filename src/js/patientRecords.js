@@ -45,7 +45,17 @@ async function  loaddocuments(addr) {
             let Type = row.insertCell(2);
             Type.innerHTML =  res.document_type;
             let Link = row.insertCell(3);
-            Link.innerHTML =  "<a id='test' class='test' href='#'>preview</a><div id='testing' class='imgContainer hide'><img src='"+res.document_link+"' alt=''/></div>"
+            if(res.document_type=="Prescription / Ordonnance médicale"&&i>7){
+                console.log("inside of fosajf"+res.document_link)
+                Link.innerHTML =  "<a id='test' class='test' href='#'>preview</a><div id='testing' class='imgContainer hide'><img id='jojo"+i+"' src='' alt=''/></div>"
+                await getBase64(res.document_link, i)
+
+                     
+            }else{
+                Link.innerHTML =  "<a id='test' class='test' href='#'>preview</a><div id='testing' class='imgContainer hide'><img src='"+res.document_link+"' alt=''/></div>"
+                
+            }
+            
             // "<a href='#'>"+res.document_link+"</a>";
             
             i++;
@@ -66,6 +76,18 @@ async function  loaddocuments(addr) {
 //         Email.innerHTML =  res.email;
         
 // });
+}
+
+function sleep(milliseconds) {  
+    return new Promise(resolve => setTimeout(resolve, milliseconds));  
+ } 
+
+async function getBase64(link, id){
+    data = null
+    $.ajax({url:link,
+        type:"GET", success:function(res){console.log(res); document.getElementById("jojo"+id).src = res.toString();}, error:function(res){console.log(res); }})
+         
+  
 }
 
 async function  loadHealthInfo(addr, contract) {

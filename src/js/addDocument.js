@@ -21,6 +21,37 @@ async function  onSubmit() {
       }
 }
 
+async function  onSubmitOrdo() {
+  contract = await $.getJSON('../Auth.json');
+  contractAddress = localStorage.getItem('contractAddress')
+  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+  web3 = new Web3(window.ethereum);
+  Authcontract = new web3.eth.Contract(contract.abi, contractAddress); 
+  addr = getUrlVars()["addr"];
+  var element = document.getElementById('Ordonnance');
+  var opt = {
+          margin: 0,
+          jsPDF:        { unit: 'mm', format: [130.5,180.5], orientation: 'portrait' }
+      };
+  const resul = await html2pdf().set(opt).from(element).outputImg('datauri');
+  // console.log(res)
+  const result = await App2.ipfs.add(resul);
+  link = "https://ipfs.io/ipfs/"+result.path;
+  console.log(link)
+
+
+  var res = await Authcontract.methods.Add_document(addr, $('#docType').val(), link, 
+    $('#docDecsription').val(), $('#docDate').val()).send({from: accounts[0], gas:3000000});
+
+    if(res.events.DocumentAdded.returnValues.patient_addr == null){
+      alert("Couldn't update information!")
+    } else {
+      alert("Information Updated succesfully! \n Patient Email: "+ res.events.DocumentAdded.returnValues.patient_addr)
+      history.back();
+    }
+}
+
 async function uploadDocument() {
     const result = await App2.ipfs.add(App2.file);
       console.log(result);
