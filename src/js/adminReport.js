@@ -1,4 +1,8 @@
 async function loadReport(){
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    
     contract = await $.getJSON('../Auth.json');
     contractAddress = localStorage.getItem('contractAddress')
 

@@ -1,7 +1,7 @@
 //Add patient from address parameter 
 async function  loadPatInfo(addr) {
     contract = await $.getJSON('../RegistrationReq.json');
-    contractAddress = "0x5868a1071E5Ac86966B2F817EC1B8e9670bfC8d2"
+    contractAddress = "0x72Bd1ee1Da85609f5AfE54969847d0EBea03F208"
 
     web3 = new Web3(window.ethereum);
     Authcontract = new web3.eth.Contract(contract.abi, contractAddress); 

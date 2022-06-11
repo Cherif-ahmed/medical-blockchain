@@ -45,7 +45,7 @@ async function  loaddocuments(addr) {
             let Type = row.insertCell(2);
             Type.innerHTML =  res.document_type;
             let Link = row.insertCell(3);
-            if(res.document_type=="Prescription / Ordonnance médicale"&&i>7){
+            if(res.document_type=="Prescription / Ordonnance médicale"){
                 console.log("inside of fosajf"+res.document_link)
                 Link.innerHTML =  "<a id='test' class='test' href='#'>preview</a><div id='testing' class='imgContainer hide'><img id='jojo"+i+"' src='' alt=''/></div>"
                 await getBase64(res.document_link, i)

@@ -2,8 +2,8 @@ App = {
   provider: new Web3.providers.HttpProvider("http://localhost:7545"),
   loading: false,
   accounts : {},
-  contractAddress : "0xf903630040d6038a845C8206C09c97512cbc3DC9",
-  ContractAddress2 : "0x5868a1071E5Ac86966B2F817EC1B8e9670bfC8d2",
+  contractAddress : "0x1f34Ab2806011043C22550eeD6C08d30b150f4ad",
+  ContractAddress2 : "0x72Bd1ee1Da85609f5AfE54969847d0EBea03F208",
   role:-1,
   load : async () =>{
     //loading app
