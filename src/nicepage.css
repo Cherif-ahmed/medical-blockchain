@@ -21468,7 +21468,7 @@ h6 {
 }
 .u-body {
   color: #111111;
-  background-color: #ffffff;
+  background-color: #333333;
   --effect-scale: 1.1;
 }
 /*end-variables color*/
@@ -36782,6 +36782,10 @@ a.u-link.u-text-hover-grey-90:hover {
 
  .u-footer {
   background-image: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height:auto;
 }
 
 .u-footer .u-sheet-1 {
