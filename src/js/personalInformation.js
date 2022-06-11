@@ -23,6 +23,7 @@ async function  loadPersonalInformation() {
     document.getElementById("profileName").innerHTML= res.firstName +" "+ res.lastName;
     document.getElementById("profileName2").innerHTML= res.firstName +" "+ res.lastName;
     document.getElementById("NavbarName").innerHTML= res.firstName +" "+ res.lastName;
+    document.getElementById("navEmail").innerHTML= res.email;
     let firstName = document.getElementById("firstName");
     firstName.innerHTML = res.firstName;
     let lastName = document.getElementById("lastName");

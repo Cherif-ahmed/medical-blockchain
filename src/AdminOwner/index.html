@@ -45,9 +45,9 @@
                 <div class="dropdown-header text-center">
                   <img class="img-md rounded-circle" src="../images/faces/adminOwner.png" alt="Profile image">
                   <p id="profileName2" class="mb-1 mt-3">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                  <p id="navEmail" class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
                 </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
+                <a class="dropdown-item" href="index.html"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
                 <a class="dropdown-item" href="../pages/samples/login.html"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
               </div>
             </li>
@@ -120,7 +120,7 @@
                       <a href="addPatient.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user mr-2"></i>Add Patient</h4></button></a>
                     </div>
                     <div class="col-sm-4 col-md-4 p-3 text-center btn-wrapper">
-                      <a href="addDoctor.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-doctor mr-2"></i> Add Healthworker</h4></button></a>
+                      <a href="addDoctor.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-doctor mr-2"></i> Add Health Worker</h4></button></a>
                     </div>
                     <div class="col-sm-4 col-md-4 p-3 text-center btn-wrapper">
                       <a href="addAdmin.html"><button type="button" class="btn px-0"><h4><i class="fa-solid fa-user-gear mr-2"></i> Add Admin</h4></button></a>
@@ -130,132 +130,6 @@
               </div>
             </div>
             <!-- Quick Action Toolbar Ends-->
-            <div class="row gutters-sm">
-              <div class="col-6 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4><u>
-                        <p class="card-description"> Personal informations </p>
-                      </u></h4>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">First Name</h6>
-                      </div>
-                      <div id="firstName" class="col-sm-9">
-                        Jhon
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Family Name</h6>
-                      </div>
-                      <div id="lastName" class="col-sm-9">
-                        Doe
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Age</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        25
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Gender</h6>
-                      </div>
-                      <div id="gender" class="col-sm-9">
-                        Male
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Address</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        Bay Area, San Francisco, CA
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Phone Number</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        123456789
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Email</h6>
-                      </div>
-                      <div id="email" class="col-sm-9">
-                        some.email@test.com
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin">
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <h4><u>
-                        <p class="card-description"> Health informations </p>
-                      </u></h4>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Weight</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        70 kg
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Height</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        1.8 m
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Blood pressure</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        120/80mm
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Chronic disease</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        Arthritis
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Allergy</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        Milk , Nuts
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="row">
               <div class="col-md-12 grid-margin">
                 <div class="card">
@@ -339,7 +213,7 @@
     <script src="../js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="../js/dashboard.js"></script>
+    
     <script src="../js/app.js"></script>
     <script src="../js/adminReport.js"></script>
     <script src="../js/personalInformation.js "></script>

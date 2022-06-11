@@ -1,260 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin Dashboard</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href=".././vendors/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href=".././vendors/chartist/chartist.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href=".././css/style.css">
-    <link rel="stylesheet" href=".././css/snackbar.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href=".././images/favicon.png" />
-    <!-- icons of font awsome for medical icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/2a7eb584b0.js" crossorigin="anonymous"></script>
 
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="../index.html">
-            <img src="../images/logo.png" alt="logo" class="logo-dark" />
-          </a>
-          <a class="navbar-brand brand-logo-mini" href="../index.html"><img src="../images/logo.png" alt="logo" /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Admin dashboard!</h5>
-          <ul class="navbar-nav navbar-nav-right ml-auto">
-            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="../images/faces/admin.png" alt="Profile image"> <span id="NavbarName" class="font-weight-normal"> Henry Klein </span></a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="../images/faces/admin.png" alt="Profile image">
-                  <p id="profileName2" class="mb-1 mt-3">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-                </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
-                <a class="dropdown-item" href="../pages/samples/login.html"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin Dashboard</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href=".././vendors/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href=".././vendors/chartist/chartist.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href=".././css/style.css">
+  <link rel="stylesheet" href=".././css/snackbar.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href=".././images/favicon.png" />
+  <!-- icons of font awsome for medical icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/2a7eb584b0.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex align-items-center">
+        <a class="navbar-brand brand-logo" href="../index.html">
+          <img src="../images/logo.png" alt="logo" class="logo-dark" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="../index.html"><img src="../images/logo.png" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+        <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Admin dashboard!</h5>
+        <ul class="navbar-nav navbar-nav-right ml-auto">
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle ml-2" src="../images/faces/admin.png" alt="Profile image"> <span
+                id="NavbarName" class="font-weight-normal"> Henry Klein </span></a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="../images/faces/admin.png" alt="Profile image">
+                <p id="profileName2" class="mb-1 mt-3">Allen Moreno</p>
+                <p id="navEmail" class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
               </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="icon-menu"></span>
-          </button>
-        </div>
+              <a class="dropdown-item" href="index.html"><i class="dropdown-item-icon icon-user text-primary"></i> My
+                Profile</a>
+              <a class="dropdown-item" href="../pages/samples/login.html"><i
+                  class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="profile-image">
+                <img class="img-xs rounded-circle" src="../images/faces/admin.png" alt="profile image">
+              </div>
+              <div class="text-wrapper">
+                <p id="profileName" class="profile-name">Allen Moreno</p>
+                <p class="designation">Administrator</p>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Dashboard</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <span class="menu-title">Dashboard</span>
+              <i class="icon-screen-desktop menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="doctors.html">
+              <span class="menu-title">Health Workers</span>
+              <i class="fa fa-user-md menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="patients.html">
+              <span class="menu-title">Patients</span>
+              <i class="fa fa-user menu-icon"></i>
+            </a>
+          </li>
+        </ul>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="../images/faces/admin.png" alt="profile image">
-                </div>
-                <div class="text-wrapper">
-                  <p id="profileName" class="profile-name">Allen Moreno</p>
-                  <p class="designation">Administrator</p>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item nav-category">
-              <span class="nav-link">Dashboard</span>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="icon-screen-desktop menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="doctors.html">
-                <span class="menu-title">Health Workers</span>
-                <i class="fa fa-user-md menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="patients.html">
-                <span class="menu-title">Patients</span>
-                <i class="fa fa-user menu-icon"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <!-- Quick Action Toolbar Starts-->
-            <div class="row quick-action-toolbar">
-              <div class="col-md-12 grid-margin">
-                <div class="card">
-                  <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
-                    <div class="col-sm-6 col-md-6 p-3 text-center btn-wrapper">
-                      <a href="addPatient.html"><button type="button" class="btn px-0"><h4><i class="fa fa-user mr-2"></i>Add Patient</h4></button></a>
-                    </div>
-                    <div class="col-sm-6 col-md-6 p-3 text-center btn-wrapper">
-                      <a href="addDoctor.html"><button type="button" class="btn px-0"><h4><i class="fa fa-user-md mr-2"></i> Add Doctor</h4></button></a>
-                    </div>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- Quick Action Toolbar Starts-->
+          <div class="row quick-action-toolbar">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
+                  <div class="col-sm-6 col-md-6 p-3 text-center btn-wrapper">
+                    <a href="addPatient.html"><button type="button" class="btn px-0">
+                        <h4><i class="fa fa-user mr-2"></i>Add Patient</h4>
+                      </button></a>
+                  </div>
+                  <div class="col-sm-6 col-md-6 p-3 text-center btn-wrapper">
+                    <a href="addDoctor.html"><button type="button" class="btn px-0">
+                        <h4><i class="fa fa-user-md mr-2"></i> Add Doctor</h4>
+                      </button></a>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Quick Action Toolbar Ends-->
-            <div class="row gutters-sm">
-              <div class="col-6 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4><u>
-                        <p class="card-description"> Personal informations </p>
-                      </u></h4>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">First Name</h6>
-                      </div>
-                      <div id="firstName" class="col-sm-9">
-                        Jhon
-                      </div>
+          </div>
+          <!-- Quick Action Toolbar Ends-->
+          <div class="row gutters-sm">
+            <div class="col-6 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4><u>
+                      <p class="card-description"> Personal informations </p>
+                    </u></h4>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">First Name</h6>
                     </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Family Name</h6>
-                      </div>
-                      <div id="lastName" class="col-sm-9">
-                        Doe
-                      </div>
+                    <div id="firstName" class="col-sm-9">
+                      Jhon
                     </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Age</h6>
-                      </div>
-                      <div id="DOB" class="col-sm-9">
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Family Name</h6>
+                    </div>
+                    <div id="lastName" class="col-sm-9">
+                      Doe
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Age</h6>
+                    </div>
+                    <div id="DOB" class="col-sm-9">
 
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Gender</h6>
-                      </div>
-                      <div id="gender" class="col-sm-9">
-                        Male
-                      </div>
-                    </div>
-                    <!-- <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Address</h6>
-                      </div>
-                      <div id="address" class="col-sm-9">
-                        
-                      </div>
-                    </div> -->
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Phone Number</h6>
-                      </div>
-                      <div id="phoneNum" class="col-sm-9">
-                        
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Email</h6>
-                      </div>
-                      <div id="email" class="col-sm-9">
-                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="col-md-6 grid-margin">
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <h4><u>
-                        <p class="card-description"> Health informations </p>
-                      </u></h4>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Weight</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        70 kg
-                      </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
                     </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Height</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        1.8 m
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Blood pressure</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        120/80mm
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Chronic disease</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        Arthritis
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Allergy</h6>
-                      </div>
-                      <div class="col-sm-9">
-                        Milk , Nuts
-                      </div>
+                    <div id="gender" class="col-sm-9">
+                      Male
                     </div>
                   </div>
+                  <hr>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="d-sm-flex align-items-baseline report-summary-header">
-                          <h5 class="font-weight-semibold">Report Summary</h5> <span class="ml-auto">Updated Report</span> <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
-                        </div>
+            <div class="col-md-6 grid-margin">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h4><u>
+                      <p class="card-description"> Contact informations </p>
+                    </u></h4>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone Number</h6>
+                    </div>
+                    <div id="phoneNum" class="col-sm-9">
+
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div id="email" class="col-sm-9">
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="d-sm-flex align-items-baseline report-summary-header">
+                        <h5 class="font-weight-semibold">Report Summary</h5> <span class="ml-auto">Updated Report</span>
+                        <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
                       </div>
                     </div>
-                    <div class="row report-inner-cards-wrapper">
-                      <!-- <div class=" col-md -6 col-xl report-inner-card">
+                  </div>
+                  <div class="row report-inner-cards-wrapper">
+                    <!-- <div class=" col-md -6 col-xl report-inner-card">
                         <div class="inner-card-icon bg-success">
                           <i class="icon-rocket"></i>
                         </div>
@@ -292,62 +251,64 @@
                           <h4>25,542</h4>
                         </div>
                       </div> -->
-                      <div class="col-md-6 col-xl report-inner-card">
-                        <div class="inner-card-icon bg-warning">
-                          <i class="fa-solid fa-hospital-user"></i>
-                        </div>
-                        <div class="inner-card-text">
-                          <span class="report-title">Number of Patients</span>
-                          <h4 id="PatientNum">Loading...</h4>
-                        </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-icon bg-warning">
+                        <i class="fa-solid fa-hospital-user"></i>
                       </div>
-                      <div class="col-md-6 col-xl report-inner-card">
-                        <div class="inner-card-icon bg-primary">
-                          <i class="fa-solid fa-user-doctor"></i>
-                        </div>
-                        <div class="inner-card-text">
-                          <span class="report-title">Number of Health Workers</span>
-                          <h4 id="DoctorNum">Loading...</h4>
-                        </div>
+                      <div class="inner-card-text">
+                        <span class="report-title">Number of Patients</span>
+                        <h4 id="PatientNum">Loading...</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-icon bg-primary">
+                        <i class="fa-solid fa-user-doctor"></i>
+                      </div>
+                      <div class="inner-card-text">
+                        <span class="report-title">Number of Health Workers</span>
+                        <h4 id="DoctorNum">Loading...</h4>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-          </footer>
-          <!-- partial -->
+
         </div>
-        <!-- main-panel ends -->
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+        </footer>
+        <!-- partial -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- main-panel ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js" integrity="sha512-jMEcX0Bev3VsCrACqEM3BFZvAMFXJSuTsMu0SttkAdMjquip6p3Oty5bbXrfg4T8n4g5BQYkGKxzLsrSqQgLUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../vendors/chart.js/Chart.min.js"></script>
-    <script src="../vendors/moment/moment.min.js"></script>
-    <script src="../vendors/daterangepicker/daterangepicker.js"></script>
-    <script src="../vendors/chartist/chartist.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../js/off-canvas.js"></script>
-    <script src="../js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/adminReport.js"></script>
-    <script src="../js/personalInformation.js "></script>
-<!-- End custom js for this page -->
-<div id="snackbar">Updating Report..</div>
-  </body>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js"
+    integrity="sha512-jMEcX0Bev3VsCrACqEM3BFZvAMFXJSuTsMu0SttkAdMjquip6p3Oty5bbXrfg4T8n4g5BQYkGKxzLsrSqQgLUQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/moment/moment.min.js"></script>
+  <script src="../vendors/daterangepicker/daterangepicker.js"></script>
+  <script src="../vendors/chartist/chartist.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="../js/app.js"></script>
+  <script src="../js/adminReport.js"></script>
+  <script src="../js/personalInformation.js "></script>
+  <!-- End custom js for this page -->
+  <div id="snackbar">Updating Report..</div>
+</body>
+
 </html>
