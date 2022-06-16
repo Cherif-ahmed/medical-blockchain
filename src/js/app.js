@@ -134,9 +134,9 @@ App = {
       if(res.events.UserRegistered.returnValues.email == null){
         alert("user not registered")
       } else {
-        // if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
-        //   await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
-        // }
+        if(await App.Requestcontract.methods.hasRequestedRegistration($('#address').val()).call()){
+          await App.Requestcontract.methods.deleteRegistrationRequest($('#address').val()).send({from: App.accounts[0], gas:3000000});
+        }
         form.reset()
         alert("Patient registered succesfully! \n Address: "+ res.events.UserRegistered.returnValues.addr)
       }
